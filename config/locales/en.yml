@@ -65,6 +65,7 @@ en:
     # app/views/main/index.html.erb
     firefox_warning:    "Some functionality might only work for Mozilla Firefox users"
     switch_role:         "Switch Role"
+    view_bugs:           "View Bugs"
     admin_password:      "Admin Password"
     is_logged_in_as:     "is logged in as:"
     cannot_login_as_another_admin: "You cannot log in as another admin."
@@ -1121,6 +1122,11 @@ en:
 
     #app/views/main/_grade_distribution_graph.html.erb
     grade_distribution:         "Grade Distribution"
+
+    #app/views/main/_track_bugs_content.html.erb
+    view_current_issues:        "View current issues"
+    report_new_issue:           "Report a new issue"
+    request_for_enhancement:    "Request a new feature or enhancement"
 
     #Test Framework
     automated_tests:

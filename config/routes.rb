@@ -281,6 +281,7 @@ Markus::Application.routes.draw do
       get 'role_switch'
       get 'clear_role_switch_session'
       post 'reset_api_key'
+      get 'track_bugs'
     end
   end
 

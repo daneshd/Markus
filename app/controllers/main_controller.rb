@@ -260,6 +260,11 @@ class MainController < ApplicationController
     return
   end
 
+  def track_bugs
+    # Empty action for remote rjs calls triggered by clicking on the bug viewer
+    # icon in header. Forward to the view.
+  end
+  
 private
 
   def login_without_authentication(markus_auth_remote_user)

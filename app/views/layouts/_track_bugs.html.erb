@@ -1,0 +1,24 @@
+<%= javascript_include_tag "livepipe/livepipe.js"%>
+<%= javascript_include_tag "livepipe/window.js"%>
+<script type="text/javascript">
+//<![CDATA[
+
+var track_bugs_modal = null;
+
+document.observe("dom:loaded", function(){
+    //Create the modal dialog
+  track_bugs_modal = new Control.Modal($('track_bugs_dialog'),
+  {
+    overlayOpacity: 0.75,
+    className: 'track_bugs_modal',
+    fade:false
+
+  });
+});
+//]]>
+</script>
+
+<div id="track_bugs_dialog" style="display:none;">
+  <!-- Inject bug tracker modal here -->
+  <div>&nbsp;</div>
+</div>

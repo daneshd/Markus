@@ -956,13 +956,13 @@ input#extra_mark_description{
   margin-left: -50px;
 }
 
-#role_switch_dialog {
+#role_switch_dialog, #track_bugs_dialog {
   background-color:#fff;
   padding:10px;  
   border:10px solid #333;  
 }
 
-#about_icon, #switch_role_icon {
+#about_icon, #switch_role_icon, #bug_viewer_icon {
   margin-left: 0.5em;
   margin-right: 0.5em;
   margin-top: 2px;
@@ -972,6 +972,26 @@ input#extra_mark_description{
 
 #about_dialog a {
   text-transform: none;
+}
+
+.admin_icon {
+  position: relative;
+  height: 6%;
+  width: 6%;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.bug_viewer_link {
+  display: block;
+  font-size: 1.6em;
+  font-weight: regular;
+  padding: 10px;
+  margin-bottom: 1px;
+}
+
+#bug_viewer_close {
+  margin: 5px 130px;
 }
 
 .p_modal{

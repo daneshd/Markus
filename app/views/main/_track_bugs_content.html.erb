@@ -1,0 +1,31 @@
+<div id="track_bugs_text">
+  <h1>
+    <%= I18n.t(:view_bugs)%>
+  </h1>
+  <% github_issues_url = "https://github.com/MarkUsProject/Markus/issues" %>
+  <% new_issue_url = github_issues_url + "/new" %>
+  <% new_issue_with_not_triaged_label_url = new_issue_url + "?labels=Not+Triaged" %>
+  <% new_issue_with_rfe_label_param = new_issue_url + "?labels=RFE" %>
+
+  <%= link_to(raw(image_tag("icons/bug_go.png", :alt => I18n.t(:view_current_issues),
+                        :title => I18n.t(:view_current_issues),
+                        :id => "view_bugs_icon", :class => "admin_icon")) + I18n.t(:view_current_issues),
+              github_issues_url, :class => "bug_viewer_link", :target => "_blank") -%>
+
+  <%= link_to(raw(image_tag("icons/bug_add.png", :alt => I18n.t(:report_new_issue),
+                        :title => I18n.t(:report_new_issue),
+                        :id => "report_new_issue_icon", :class => "admin_icon")) + I18n.t(:report_new_issue),
+              new_issue_with_not_triaged_label_url, :class => "bug_viewer_link", :target => "_blank") -%>
+
+  <%= link_to(raw(image_tag("icons/bug_add.png", :alt => I18n.t(:request_for_enhancement),
+                        :title => I18n.t(:request_for_enhancement),
+                        :id => "request_for_enhancement_icon", :class => "admin_icon")) + I18n.t(:request_for_enhancement),
+              new_issue_with_rfe_label_param, :class => "bug_viewer_link", :target => "_blank") -%>
+
+  <%= button_to_function(I18n.t(:cancel), 'track_bugs_modal.close()',
+                         :id => "bug_viewer_close", :class => "button", :tabindex => 110) -%>
+
+  <script>
+    track_bugs_modal.open();
+  </script>
+</div>

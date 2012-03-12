@@ -40,6 +40,10 @@
             :id => "switch_role_icon"),
           role_switch_main_index_path(),
         :remote => true) %>
+
+      <%= link_to(image_tag("icons/bug.png", :alt => I18n.t(:view_bugs),
+                            :title => I18n.t(:view_bugs), :id => "bug_viewer_icon"),
+                  track_bugs_main_index_path(), :remote => true) -%>
       <% end %>
 
       <%= link_to(I18n.t(:log_out),

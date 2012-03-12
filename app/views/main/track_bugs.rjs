@@ -1,0 +1,1 @@
+page.replace_html 'track_bugs_dialog', :partial => 'track_bugs_content'
