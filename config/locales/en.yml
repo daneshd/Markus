@@ -1122,6 +1122,15 @@ en:
     #app/views/main/_grade_distribution_graph.html.erb
     grade_distribution:         "Grade Distribution"
 
+    #app/views/main/_help_content.html.erb
+    help_with_markus:           "Help with MarkUs"
+    user_guide:                 "User Guide"
+    report_issues:              "Report a MarkUs issue"
+    view_current_issues:        "View current issues"
+    report_new_issue:           "Report a new issue"
+    request_for_enhancement:    "Request a new feature or enhancement"
+    github_required:            "A GitHub account is required for this"
+
     #Test Framework
     automated_tests:
       automated_tests: "Test Framework"

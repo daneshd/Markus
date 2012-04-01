@@ -968,11 +968,23 @@ input#extra_mark_description{
 
 #role_switch_dialog {
   background-color:#fff;
-  padding:10px;  
-  border:10px solid #333;  
+  padding:10px;
+  border:10px solid #333;
 }
 
-#about_icon, #switch_role_icon {
+#help_dialog {
+  background: white;
+  border:10px solid #333;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  padding: 10px 110px;
+}
+
+#help_text {
+    width: 105%;
+}
+
+#about_icon, #switch_role_icon, #help_icon {
   margin-left: 0.5em;
   margin-right: 0.5em;
   margin-top: 2px;
@@ -984,6 +996,33 @@ input#extra_mark_description{
   text-transform: none;
 }
 
+.admin_icon {
+  position: relative;
+  top: 4px;
+  height: 20px;
+  width: 20px;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.help_link {
+  display: block;
+  font-size: 1.2em;
+  padding: 6px 20px;
+}
+
+#help_close_dialog {
+  margin-top: 20px;
+  position: relative;
+  left: 25%;
+}
+
+#github_note_desc {
+  position: relative;
+  top: 10px;
+  left: 40px;
+  font-size: smaller;
+}
 .p_modal{
   margin-top: 5px;
   border-top: 1px solid #000000;
@@ -2010,7 +2049,7 @@ pre#test_result_content {
 }
 
 .table-button {
-	margin: 2px;
-	padding: 2px;
-	min-width: 0px;
+  margin: 2px;
+  padding: 2px;
+  min-width: 0px;
 }
