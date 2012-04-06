@@ -147,7 +147,7 @@ class RoutingTest < ActionController::TestCase
     end
    end # end Admin resource route tests
   
-  context "An Assignments" do
+  context "An Assignment" do
     setup do
       @path = '/en/assignments'
       @controller = 'assignments'      
@@ -331,8 +331,8 @@ class RoutingTest < ActionController::TestCase
                           :assignment_id => '1',
                           :locale => 'en'})            
         end
-      end # end rubric collection route tests
-    end # end nested rubrics resource route tests
+      end # end assignment rubric collection route tests
+    end # end assignment rubrics route tests
     context "'s flexible_criteria" do
       context "collection" do
         setup do
@@ -345,6 +345,30 @@ class RoutingTest < ActionController::TestCase
                           :method => :post},
                          {:controller => @controller,
                           :action => 'upload',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET update_positions" do
+          assert_routing({:path => @path + '/update_positions',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'update_positions',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET move_criterion" do
+          assert_routing({:path => @path + '/move_criterion',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'move_criterion',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+         should "route GET download properly" do
+          assert_routing({:path => @path + '/download',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'download',
                           :assignment_id => '1',
                           :locale => 'en'})
         end
@@ -448,7 +472,127 @@ class RoutingTest < ActionController::TestCase
                           :assignment_id => '1',
                           :locale => 'en'})
         end
-      end # end assignment groups collection route tests
-    end
-  end # end assignments resource route test
+        should "route POST populate_students properly" do
+          assert_routing({:path => @path + '/populate_students',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'populate_students',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET add_group properly" do
+          assert_routing({:path => @path + '/add_group',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'add_group',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET use_another_assignment_groups properly" do
+          assert_routing({:path => @path + '/use_another_assignment_groups',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'use_another_assignment_groups',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET manage properly" do
+          assert_routing({:path => @path + '/manage',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'manage',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route POST csv_upload properly" do
+          assert_routing({:path => @path + '/csv_upload',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'csv_upload',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET add_csv_group properly" do
+          assert_routing({:path => @path + '/add_csv_group',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'add_csv_group',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET download_grouplist properly" do
+          assert_routing({:path => @path + '/download_grouplist',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'download_grouplist',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET create_groups_when_students_work_alone properly" do
+          assert_routing({:path => @path + '/create_groups_when_students_work_alone',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'create_groups_when_students_work_alone',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET valid_grouping properly" do
+          assert_routing({:path => @path + '/valid_grouping',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'valid_grouping',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET invalid_grouping properly" do
+          assert_routing({:path => @path + '/invalid_grouping',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'invalid_grouping',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET global_actions properly" do
+          assert_routing({:path => @path + '/global_actions',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'global_actions',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET rename_group properly" do
+          assert_routing({:path => @path + '/rename_group',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'rename_group',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route DELETE remove_group properly" do
+          assert_routing({:path => @path + '/remove_group',
+                          :method => :delete},
+                         {:controller => @controller,
+                          :action => 'remove_group',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route POST add_group properly" do
+          assert_routing({:path => @path + '/add_group',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'add_group',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route POST global_actions properly" do
+          assert_routing({:path => @path + '/global_actions',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'global_actions',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+      end # end assignment groups collection route tests   
+    end # end assignment groups route tests
+  end # end assignments resource route tests
 end
