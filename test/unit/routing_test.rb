@@ -435,6 +435,598 @@ class RoutingTest < ActionController::TestCase
         end
       end # end assignment automated_test collection tests
     end # end assignment automated_tests resource route tests
+    context "groups" do
+      setup do
+        @path = @path + "/1/groups"
+        @controller = "groups"
+      end
+      context "resource members" do
+        should "route POST rename_group properly" do
+          assert_routing({:path => @path + '/1/rename_group',
+                        :method => :post},
+                       {:controller => @controller,
+                        :action => 'rename_group',
+                        :id => '1',
+                        :assignment_id => '1',
+                        :locale => 'en'})
+        end
+        should "route GET rename_group_dialog properly" do
+          assert_routing({:path => @path + '/1/rename_group_dialog',
+                        :method => :get},
+                       {:controller => @controller,
+                        :action => 'rename_group_dialog',
+                        :id => '1',
+                        :assignment_id => '1',
+                        :locale => 'en'})          
+        end
+      end # end assignment group members route tests
+      context "collection" do
+        should "route POST populate properly" do
+           assert_routing({:path => @path + '/populate',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'populate',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route POST populate_students properly" do
+           assert_routing({:path => @path + '/populate_students',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'populate_students',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET add_group properly" do
+           assert_routing({:path => @path + '/add_group',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'add_group',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET use_another_assignment_groups properly" do
+           assert_routing({:path => @path + '/use_another_assignment_groups',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'use_another_assignment_groups',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET manage properly" do
+           assert_routing({:path => @path + '/manage',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'manage',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route POST csv_upload properly" do
+           assert_routing({:path => @path + '/csv_upload',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'csv_upload',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET add_csv_group properly" do
+           assert_routing({:path => @path + '/add_csv_group',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'add_csv_group',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET download_grouplist properly" do
+           assert_routing({:path => @path + '/download_grouplist',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'download_grouplist',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET create_groups_when_students_work_alone properly" do
+           assert_routing({:path => @path + '/create_groups_when_students_work_alone',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'create_groups_when_students_work_alone',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET valid_grouping properly" do
+           assert_routing({:path => @path + '/valid_grouping',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'valid_grouping',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET invalid_grouping properly" do
+           assert_routing({:path => @path + '/invalid_grouping',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'invalid_grouping',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET global_actions properly" do
+           assert_routing({:path => @path + '/global_actions',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'global_actions',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET rename_group properly" do
+           assert_routing({:path => @path + '/rename_group',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'rename_group',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route DELETE remove_group properly" do
+           assert_routing({:path => @path + '/remove_group',
+                          :method => :delete},
+                         {:controller => @controller,
+                          :action => 'remove_group',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route POST add_group properly" do
+           assert_routing({:path => @path + '/add_group',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'add_group',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route POST global_actions properly" do
+           assert_routing({:path => @path + '/global_actions',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'global_actions',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+      end # end assignment group collection route tests
+    end # end assignment groups route tests
+    context "submission" do
+      setup do
+        @path = @path + "/1/submissions"
+        @controller = "submissions"
+      end
+      context "collection" do
+        should "route GET file_manager properly" do
+          assert_routing({:path => @path + '/file_manager',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'file_manager',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET browse properly" do
+          assert_routing({:path => @path + '/browse',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'browse',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route POST populate_file_manager properly" do
+          assert_routing({:path => @path + '/populate_file_manager',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'populate_file_manager',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET collect_all_submissions properly" do
+          assert_routing({:path => @path + '/collect_all_submissions',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'collect_all_submissions',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET download_simple_csv_report properly" do
+          assert_routing({:path => @path + '/download_simple_csv_report',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'download_simple_csv_report',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET download_detailed_csv_report properly" do
+          assert_routing({:path => @path + '/download_detailed_csv_report',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'download_detailed_csv_report',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET download_svn_export_list properly" do
+          assert_routing({:path => @path + '/download_svn_export_list',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'download_svn_export_list',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET download_svn_export_commands properly" do
+          assert_routing({:path => @path + '/download_svn_export_commands',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'download_svn_export_commands',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET download_svn_repo_list properly" do
+          assert_routing({:path => @path + '/download_svn_repo_list',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'download_svn_repo_list',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET collect_ta_submissions properly" do
+          assert_routing({:path => @path + '/collect_ta_submissions',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'collect_ta_submissions',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET update_submissions properly" do
+          assert_routing({:path => @path + '/update_submissions',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'update_submissions',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route POST populate_repo_browser properly" do
+          assert_routing({:path => @path + '/populate_repo_browser',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'populate_repo_browser',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route POST update_converted_pdfs properly" do
+          assert_routing({:path => @path + '/update_converted_pdfs',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'update_converted_pdfs',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET updated_files properly" do
+          assert_routing({:path => @path + '/updated_files',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'updated_files',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET replace_files properly" do
+          assert_routing({:path => @path + '/replace_files',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'replace_files',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET delete_files properly" do
+          assert_routing({:path => @path + '/delete_files',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'delete_files',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route POST update_files properly" do
+          assert_routing({:path => @path + '/update_files',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'update_files',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route POST server_time properly" do
+          assert_routing({:path => @path + '/server_time',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'server_time',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+        should "route GET download properly" do
+          assert_routing({:path => @path + '/download',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'download',
+                          :assignment_id => '1',
+                          :locale => 'en'})
+        end
+      end # end assignment submissions collection route tests
+      context "member" do
+        should "route GET collect_and_begin_grading properly" do
+          assert_routing({:path => @path + '/1/collect_and_begin_grading',
+                        :method => :get},
+                       {:controller => @controller,
+                        :action => 'collect_and_begin_grading',
+                        :id => '1',
+                        :assignment_id => '1',
+                        :locale => 'en'})
+        end
+        should "route POST manually_collect_and_begin_grading properly" do
+          assert_routing({:path => @path + '/1/manually_collect_and_begin_grading',
+                        :method => :post},
+                       {:controller => @controller,
+                        :action => 'manually_collect_and_begin_grading',
+                        :id => '1',
+                        :assignment_id => '1',
+                        :locale => 'en'})
+        end
+        should "route GET repo_browser properly" do
+          assert_routing({:path => @path + '/1/repo_browser',
+                        :method => :get},
+                       {:controller => @controller,
+                        :action => 'repo_browser',
+                        :id => '1',
+                        :assignment_id => '1',
+                        :locale => 'en'})
+        end
+      end # end assignment submissions member route tests
+      context "results" do
+        setup do
+          @path = @path + "/1/results"
+          @controller = "results"
+        end
+        context "collection" do
+          should "route POST update_mark properly" do
+            assert_routing({:path => @path + '/update_mark',
+                            :method => :post},
+                           {:controller => @controller,
+                            :action => 'update_mark',
+                            :assignment_id => '1',
+                            :submission_id => '1',
+                            :locale => 'en'})
+          end
+          should "route POST expand_criteria properly" do
+            assert_routing({:path => @path + '/expand_criteria',
+                            :method => :post},
+                           {:controller => @controller,
+                            :action => 'expand_criteria',
+                            :assignment_id => '1',
+                            :submission_id => '1',
+                            :locale => 'en'})
+          end
+        end # end assignment submissions results collection route tests
+        context "member" do
+          should "route GET add_extra_marks properly" do
+            assert_routing({:path => @path + '/1/add_extra_marks',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'add_extra_marks',
+                          :id => '1',
+                          :assignment_id => '1',
+                          :submission_id => '1',
+                          :locale => 'en'})            
+          end
+          should "route GET add_extra_mark properly" do
+            assert_routing({:path => @path + '/1/add_extra_mark',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'add_extra_mark',
+                          :id => '1',
+                          :assignment_id => '1',
+                          :submission_id => '1',
+                          :locale => 'en'})            
+          end
+          should "route GET download properly" do
+            assert_routing({:path => @path + '/1/download',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'download',
+                          :id => '1',
+                          :assignment_id => '1',
+                          :submission_id => '1',
+                          :locale => 'en'})            
+          end
+          should "route POST download properly" do
+            assert_routing({:path => @path + '/1/download',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'download',
+                          :id => '1',
+                          :assignment_id => '1',
+                          :submission_id => '1',
+                          :locale => 'en'})            
+          end
+          should "route GET cancel_remark_request properly" do
+            assert_routing({:path => @path + '/1/cancel_remark_request',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'cancel_remark_request',
+                          :id => '1',
+                          :assignment_id => '1',
+                          :submission_id => '1',
+                          :locale => 'en'})            
+          end
+          should "route GET codeviewer properly" do
+            assert_routing({:path => @path + '/1/codeviewer',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'codeviewer',
+                          :id => '1',
+                          :assignment_id => '1',
+                          :submission_id => '1',
+                          :locale => 'en'})            
+          end
+          should "route POST codeviewer properly" do
+            assert_routing({:path => @path + '/1/codeviewer',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'codeviewer',
+                          :id => '1',
+                          :assignment_id => '1',
+                          :submission_id => '1',
+                          :locale => 'en'})            
+          end
+          should "route POST collapse_criteria properly" do
+            assert_routing({:path => @path + '/1/collapse_criteria',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'collapse_criteria',
+                          :id => '1',
+                          :assignment_id => '1',
+                          :submission_id => '1',
+                          :locale => 'en'})            
+          end
+          should "route POST add_extra_mark properly" do
+            assert_routing({:path => @path + '/1/add_extra_mark',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'add_extra_mark',
+                          :id => '1',
+                          :assignment_id => '1',
+                          :submission_id => '1',
+                          :locale => 'en'})            
+          end
+          should "route GET next_grouping properly" do
+            assert_routing({:path => @path + '/1/next_grouping',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'next_grouping',
+                          :id => '1',
+                          :assignment_id => '1',
+                          :submission_id => '1',
+                          :locale => 'en'})            
+          end
+          should "route POST remove_extra_mark properly" do
+            assert_routing({:path => @path + '/1/remove_extra_mark',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'remove_extra_mark',
+                          :id => '1',
+                          :assignment_id => '1',
+                          :submission_id => '1',
+                          :locale => 'en'})            
+          end
+          should "route POST expand_unmarked_criteria properly" do
+            assert_routing({:path => @path + '/1/expand_unmarked_criteria',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'expand_unmarked_criteria',
+                          :id => '1',
+                          :assignment_id => '1',
+                          :submission_id => '1',
+                          :locale => 'en'})            
+          end
+          should "route GET set_released_to_students properly" do
+            assert_routing({:path => @path + '/1/set_released_to_students',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'set_released_to_students',
+                          :id => '1',
+                          :assignment_id => '1',
+                          :submission_id => '1',
+                          :locale => 'en'})            
+          end
+          should "route POST update_overall_comment properly" do
+            assert_routing({:path => @path + '/1/update_overall_comment',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'update_overall_comment',
+                          :id => '1',
+                          :assignment_id => '1',
+                          :submission_id => '1',
+                          :locale => 'en'})            
+          end
+          should "route POST update_overall_remark_comment properly" do
+            assert_routing({:path => @path + '/1/update_overall_remark_comment',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'update_overall_remark_comment',
+                          :id => '1',
+                          :assignment_id => '1',
+                          :submission_id => '1',
+                          :locale => 'en'})            
+          end
+          should "route POST update_marking_state properly" do
+            assert_routing({:path => @path + '/1/update_marking_state',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'update_marking_state',
+                          :id => '1',
+                          :assignment_id => '1',
+                          :submission_id => '1',
+                          :locale => 'en'})            
+          end
+          should "route GET update_remark_request properly" do
+            assert_routing({:path => @path + '/1/update_remark_request',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'update_remark_request',
+                          :id => '1',
+                          :assignment_id => '1',
+                          :submission_id => '1',
+                          :locale => 'en'})            
+          end
+          should "route GET update_positions properly" do
+            assert_routing({:path => @path + '/1/update_positions',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'update_positions',
+                          :id => '1',
+                          :assignment_id => '1',
+                          :submission_id => '1',
+                          :locale => 'en'})            
+          end
+        #  should "route GET update_mark properly" do
+        #    assert_routing({:path => @path + '/1/update_mark',
+        #                  :method => :get},
+        #                 {:controller => @controller,
+        #                  :action => 'update_mark',
+        #                  :id => '1',
+        #                  :assignment_id => '1',
+        #                  :submission_id => '1',
+        #                  :locale => 'en'})            
+        #  end
+        # should "route GET expand_criteria properly" do
+        #   assert_routing({:path => @path + '/1/expand_criteria',
+        #                 :method => :get},
+        #                {:controller => @controller,
+        #                  :action => 'expand_criteria',
+        #                  :id => '1',
+        #                  :assignment_id => '1',
+        #                  :submission_id => '1',
+        #                  :locale => 'en'})            
+        #  end
+          should "route GET view_marks properly" do
+            assert_routing({:path => @path + '/1/view_marks',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'view_marks',
+                          :id => '1',
+                          :assignment_id => '1',
+                          :submission_id => '1',
+                          :locale => 'en'})            
+          end
+        end # end assignment submission results member route tests
+      end # end assignment submission results route tests
+    end # end assignment submissions route tests
+    context "graders" do
+      setup do
+        @path = @path + "/1/graders"
+        @controller = "graders"
+      end
+      context "collection" do
+        
+      end
+    end
   end # end assignments resource route tests
  
-end
+end # end route tests
