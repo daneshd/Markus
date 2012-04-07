@@ -71,11 +71,19 @@ class RoutingTest < ActionController::TestCase
       end
     end
     context "submission_downloads resource" do
+      should "not have a route to GET new" do
+        assert_raises(ActionController::RoutingError) do
+        assert_routing({:path => @path + '/new',
+                        :method => :get},
+                       {:controller => @controller,
+                        :action => 'new',
+                        :format => 'text',
+                        :locale => 'en'})
+        end
+      end
     end # end submission_downloads route tests
     context "users resource" do
     end # end user_resource route tests
-    context "main_api resource" do
-    end
   end # end API route tests
 
   context "Admin resource" do
