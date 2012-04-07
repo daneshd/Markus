@@ -231,7 +231,6 @@ Markus::Application.routes.draw do
   end
 
   resources :notes do
-
     collection do
       post 'add_note'
       post 'noteable_object_selector'
@@ -247,14 +246,14 @@ Markus::Application.routes.draw do
   end
 
   resources :sections
-
+  
   resources :annotations do
-    collection do
-      post 'add_existing_annotation'
-      put 'update_annotation'
-      post 'update_comment'
-      delete 'destroy'
-    end
+      collection do
+        post 'add_existing_annotation'
+        put 'update_annotation'
+        post 'update_comment'
+        delete 'destroy'
+      end
   end
 
   resources :students do

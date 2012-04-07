@@ -1152,14 +1152,6 @@ class RoutingTest < ActionController::TestCase
                           :assignment_id => '1',
                           :locale => 'en'})         
         end
-        should "route GET upload_dialog properly" do
-          assert_routing({:path => @path + '/upload_dialog',
-                          :method => :get},
-                         {:controller => @controller,
-                          :action => 'upload_dialog',
-                          :assignment_id => '1',
-                          :locale => 'en'})         
-        end
         should "route POST global_actions properly" do
           assert_routing({:path => @path + '/global_actions',
                           :method => :post},
@@ -1450,4 +1442,184 @@ class RoutingTest < ActionController::TestCase
       end
     end # end notes member route tests
   end # end notes route tests
+  context "annotation collection" do
+    setup do
+     @path = "/en/annotations"
+     @controller = "annotations"
+    end
+    should "route POST add_existing_annotation properly" do
+      assert_routing({:path => @path + '/add_existing_annotation',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'add_existing_annotation',
+                          :locale => 'en'})
+    end
+    should "route PUT update_annotation properly" do
+      assert_routing({:path => @path + '/update_annotation',
+                          :method => :put},
+                         {:controller => @controller,
+                          :action => 'update_annotation',
+                          :locale => 'en'})
+    end
+    should "route POST update_comment properly" do
+     assert_routing({:path => @path + '/update_comment',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'update_comment',
+                          :locale => 'en'})
+    end
+    should "route DELETE destroy properly" do
+     assert_routing({:path => @path,
+                          :method => :delete},
+                         {:controller => @controller,
+                          :action => 'destroy',
+                          :locale => 'en'})
+    end
+  end # end annotation route tests
+  context "students collection" do
+    setup do
+      @path = "/en/students"
+      @controller = "students"
+    end
+    should "route POST bulk_modify properly" do
+     assert_routing({:path => @path + '/bulk_modify',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'bulk_modify',
+                          :locale => 'en'})
+    end
+    should "route POST populate properly" do
+     assert_routing({:path => @path + '/populate',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'populate',
+                          :locale => 'en'})
+    end
+    should "route GET manage properly" do
+     assert_routing({:path => @path + '/manage',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'manage',
+                          :locale => 'en'})
+    end
+    should "route GET add_new_section properly" do
+     assert_routing({:path => @path + '/add_new_section',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'add_new_section',
+                          :locale => 'en'})
+    end
+    should "route GET download_student_list properly" do
+     assert_routing({:path => @path + '/download_student_list',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'download_student_list',
+                          :locale => 'en'})
+    end
+    should "route POST upload_student_list properly" do
+     assert_routing({:path => @path + '/upload_student_list',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'upload_student_list',
+                          :locale => 'en'})
+    end
+  end # end students collection route tests
+  context "tas collection" do
+    setup do
+      @path = "/en/tas"
+      @controller = "tas"
+    end
+    should "route POST populate properly" do
+     assert_routing({:path => @path + '/populate',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'populate',
+                          :locale => 'en'})
+    end
+    should "route POST upload_ta_list properly" do
+     assert_routing({:path => @path + '/upload_ta_list',
+                          :method => :post},
+                         {:controller => @controller,
+                          :action => 'upload_ta_list',
+                          :locale => 'en'})
+    end
+    should "route GET download_ta_list properly" do
+     assert_routing({:path => @path + '/download_ta_list',
+                          :method => :get},
+                         {:controller => @controller,
+                          :action => 'download_ta_list',
+                          :locale => 'en'})
+    end
+  end # end tas collection route tests
+  context "main" do
+    setup do
+      @path = "/en/main"
+      @controller = "main"
+    end
+    context "collection" do
+      should "route GET logout properly" do
+       assert_routing({:path => @path + '/logout',
+                            :method => :post},
+                           {:controller => @controller,
+                            :action => 'logout',
+                            :locale => 'en'})
+      end
+      should "route GET about properly" do
+       assert_routing({:path => @path + '/about',
+                            :method => :post},
+                           {:controller => @controller,
+                            :action => 'about',
+                            :locale => 'en'})
+      end
+      should "route POST login_as properly" do
+       assert_routing({:path => @path + '/login_as',
+                            :method => :post},
+                           {:controller => @controller,
+                            :action => 'login_as',
+                            :locale => 'en'})
+      end
+      should "route GET role_switch properly" do
+       assert_routing({:path => @path + '/about',
+                            :method => :post},
+                           {:controller => @controller,
+                            :action => 'about',
+                            :locale => 'en'})
+      end
+      should "route GET clear_role_switch_session properly" do
+       assert_routing({:path => @path + '/about',
+                            :method => :post},
+                           {:controller => @controller,
+                            :action => 'about',
+                            :locale => 'en'})
+      end
+      should "route POST reset_api_key properly" do
+       assert_routing({:path => @path + '/reset_api_key',
+                            :method => :post},
+                           {:controller => @controller,
+                            :action => 'reset_api_key',
+                            :locale => 'en'})
+      end
+    end # end main collection route tests
+    should "route GET index properly" do
+       assert_routing({:path => @path,
+                            :method => :get},
+                           {:controller => @controller,
+                            :action => 'index',
+                            :locale => 'en'})
+    end
+    should "route GET about properly" do
+       assert_routing({:path => @path + "/about",
+                            :method => :get},
+                           {:controller => @controller,
+                            :action => 'about',
+                            :locale => 'en'})
+    end
+    should "route GET logout properly" do
+       assert_routing({:path => @path + "/logout",
+                            :method => :get},
+                           {:controller => @controller,
+                            :action => 'logout',
+                            :locale => 'en'})
+    end
+  end # end main route tests
 end # end route tests
