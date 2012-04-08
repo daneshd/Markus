@@ -1164,6 +1164,7 @@ class RoutingTest < ActionController::TestCase
                           :action => 'set_assign_criteria',
                           :assignment_id => '1',
                           :locale => 'en'})
+        end
         should "route GET random_assign properly" do
           assert_routing({:path => @path + '/random_assign',
                           :method => :get},
