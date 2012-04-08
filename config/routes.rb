@@ -235,6 +235,7 @@ Markus::Application.routes.draw do
   end
 
   resources :notes do
+    
     collection do
       post 'add_note'
       post 'noteable_object_selector'

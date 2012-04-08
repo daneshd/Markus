@@ -46,7 +46,7 @@ class RoutingTest < ActionController::TestCase
       should "not route GET edit" do
           assert_raises(Test::Unit::AssertionFailedError) do
             assert_recognizes({:controller => 'submission_downloads',
-                              :action=>'edit'}, 
+                              :action=>'edit'},
                               {:path => @path + "/submission_downloads/edit",
                                :method => :get})
           end
@@ -95,7 +95,7 @@ class RoutingTest < ActionController::TestCase
     should "route POST create correctly" do
       assert_routing({:path => @path,
                       :method => :post},
-                     {:controller => @controller, 
+                     {:controller => @controller,
                       :action => 'create',
                       :locale => 'en'})
     end
@@ -142,7 +142,7 @@ class RoutingTest < ActionController::TestCase
    context "An Assignment" do
     setup do
       @path = '/en/assignments'
-      @controller = 'assignments'      
+      @controller = 'assignments'
     end
     context "collection" do
       should "route GET download_csv_grades_report properly" do
@@ -150,28 +150,28 @@ class RoutingTest < ActionController::TestCase
                         :method => :get},
                        {:controller => @controller,
                         :action => 'download_csv_grades_report',
-                        :locale => 'en'})      
+                        :locale => 'en'})
       end
       should "route GET update_group_properties_on_persist properly" do
         assert_routing({:path => @path + '/update_group_properties_on_persist',
                         :method => :get},
                        {:controller => @controller,
                         :action => 'update_group_properties_on_persist',
-                        :locale => 'en'})      
+                        :locale => 'en'})
       end
       should "route GET delete_rejected properly" do
         assert_routing({:path => @path + '/delete_rejected',
                         :method => :get},
                        {:controller => @controller,
                         :action => 'delete_rejected',
-                        :locale => 'en'})      
+                        :locale => 'en'})
       end
       should "route POST update_collected_submissions" do
         assert_routing({:path => @path + '/update_collected_submissions',
                         :method => :post},
                        {:controller => @controller,
                         :action => 'update_collected_submissions',
-                        :locale => 'en'})      
+                        :locale => 'en'})
       end
     end # end assignments collection routes test
     context "member" do
@@ -181,7 +181,7 @@ class RoutingTest < ActionController::TestCase
                        {:controller => @controller,
                         :action => 'refresh_graph',
                         :id => '1',
-                        :locale => 'en'})        
+                        :locale => 'en'})
       end
       should "route GET student_interface properly" do
          assert_routing({:path => @path + '/1/student_interface',
@@ -189,7 +189,7 @@ class RoutingTest < ActionController::TestCase
                        {:controller => @controller,
                         :action => 'student_interface',
                         :id => '1',
-                        :locale => 'en'})        
+                        :locale => 'en'})
       end
      # should "route GET update_group_properties_on_persist properly" do
      #    assert_routing({:path => @path + '/1/update_group_properties_on_persist',
@@ -205,7 +205,7 @@ class RoutingTest < ActionController::TestCase
                        {:controller => @controller,
                         :action => 'invite_member',
                         :id => '1',
-                        :locale => 'en'})          
+                        :locale => 'en'})
      end
      should "route GET creategroup properly" do
          assert_routing({:path => @path + '/1/creategroup',
@@ -213,7 +213,7 @@ class RoutingTest < ActionController::TestCase
                        {:controller => @controller,
                         :action => 'creategroup',
                         :id => '1',
-                        :locale => 'en'})          
+                        :locale => 'en'})
      end
      should "route GET join_group properly" do
          assert_routing({:path => @path + '/1/join_group',
@@ -221,7 +221,7 @@ class RoutingTest < ActionController::TestCase
                        {:controller => @controller,
                         :action => 'join_group',
                         :id => '1',
-                        :locale => 'en'})          
+                        :locale => 'en'})
      end
      should "route GET deletegroup properly" do
          assert_routing({:path => @path + '/1/deletegroup',
@@ -229,7 +229,7 @@ class RoutingTest < ActionController::TestCase
                        {:controller => @controller,
                         :action => 'deletegroup',
                         :id => '1',
-                        :locale => 'en'})          
+                        :locale => 'en'})
      end
      should "route GET decline_invitation properly" do
          assert_routing({:path => @path + '/1/decline_invitation',
@@ -237,7 +237,7 @@ class RoutingTest < ActionController::TestCase
                        {:controller => @controller,
                         :action => 'decline_invitation',
                         :id => '1',
-                        :locale => 'en'})          
+                        :locale => 'en'})
      end
      should "route GET disinvite_member properly" do
          assert_routing({:path => @path + '/1/decline_invitation',
@@ -245,7 +245,7 @@ class RoutingTest < ActionController::TestCase
                        {:controller => @controller,
                         :action => 'decline_invitation',
                         :id => '1',
-                        :locale => 'en'})          
+                        :locale => 'en'})
      end
      should "route GET render_test_result properly" do
          assert_routing({:path => @path + '/1/render_test_result',
@@ -253,7 +253,7 @@ class RoutingTest < ActionController::TestCase
                        {:controller => @controller,
                         :action => 'render_test_result',
                         :id => '1',
-                        :locale => 'en'})          
+                        :locale => 'en'})
      end
     end # end assignments members route tests
     context "'s rubrics" do
@@ -269,8 +269,7 @@ class RoutingTest < ActionController::TestCase
                         :action => 'destroy',
                         :id => '1',
                         :assignment_id => '1',
-                        :locale => 'en'})          
-         
+                        :locale => 'en'})
         end
         should "route GET move_criterion properly" do
           assert_routing({:path => @path + '/1/move_criterion',
@@ -289,7 +288,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'update_positions',
                           :assignment_id => '1',
-                          :locale => 'en'})      
+                          :locale => 'en'})
         end
         should "route POST csv_upload properly" do
           assert_routing({:path => @path + '/csv_upload',
@@ -297,7 +296,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'csv_upload',
                           :assignment_id => '1',
-                          :locale => 'en'})            
+                          :locale => 'en'})
         end
         should "route POST yml_upload properly" do
           assert_routing({:path => @path + '/yml_upload',
@@ -305,7 +304,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'yml_upload',
                           :assignment_id => '1',
-                          :locale => 'en'})            
+                          :locale => 'en'})
         end
         should "route GET download_csv properly" do
           assert_routing({:path => @path + '/download_csv',
@@ -313,7 +312,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'download_csv',
                           :assignment_id => '1',
-                          :locale => 'en'})            
+                          :locale => 'en'})
         end
         should "route GET download_yml properly" do
           assert_routing({:path => @path + '/download_yml',
@@ -321,7 +320,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'download_yml',
                           :assignment_id => '1',
-                          :locale => 'en'})            
+                          :locale => 'en'})
         end
       end # end assignment rubric collection route tests
     end # end assignment rubrics route tests
@@ -393,7 +392,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'update_positions',
                           :assignment_id => '1',
-                          :locale => 'en'})         
+                          :locale => 'en'})
         end
         should "route GET update_positions properly" do
           assert_routing({:path => @path + '/update_positions',
@@ -401,7 +400,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'update_positions',
                           :assignment_id => '1',
-                          :locale => 'en'})          
+                          :locale => 'en'})
         end
         should "route POST upload properly" do
           assert_routing({:path => @path + '/upload',
@@ -409,7 +408,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'upload',
                           :assignment_id => '1',
-                          :locale => 'en'})          
+                          :locale => 'en'})
         end
         should "route GET download properly" do
           assert_routing({:path => @path + '/download',
@@ -417,7 +416,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'download',
                           :assignment_id => '1',
-                          :locale => 'en'})          
+                          :locale => 'en'})
         end
         should "route GET move_criterion properly" do
           assert_routing({:path => @path + '/move_criterion',
@@ -425,7 +424,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'move_criterion',
                           :assignment_id => '1',
-                          :locale => 'en'})          
+                          :locale => 'en'})
         end
       end # end assignment automated_test collection tests
     end # end assignment automated_tests resource route tests
@@ -451,7 +450,7 @@ class RoutingTest < ActionController::TestCase
                         :action => 'rename_group_dialog',
                         :id => '1',
                         :assignment_id => '1',
-                        :locale => 'en'})          
+                        :locale => 'en'})
         end
       end # end assignment group members route tests
       context "collection" do
@@ -843,7 +842,7 @@ class RoutingTest < ActionController::TestCase
                           :id => '1',
                           :assignment_id => '1',
                           :submission_id => '1',
-                          :locale => 'en'})            
+                          :locale => 'en'})
           end
           should "route GET add_extra_mark properly" do
             assert_routing({:path => @path + '/1/add_extra_mark',
@@ -853,7 +852,7 @@ class RoutingTest < ActionController::TestCase
                           :id => '1',
                           :assignment_id => '1',
                           :submission_id => '1',
-                          :locale => 'en'})            
+                          :locale => 'en'})
           end
          # should "route GET download properly" do
          #   assert_routing({:path => @path + '/1/download',
@@ -883,7 +882,7 @@ class RoutingTest < ActionController::TestCase
                           :id => '1',
                           :assignment_id => '1',
                           :submission_id => '1',
-                          :locale => 'en'})            
+                          :locale => 'en'})
           end
           should "route GET codeviewer properly" do
             assert_routing({:path => @path + '/1/codeviewer',
@@ -893,7 +892,7 @@ class RoutingTest < ActionController::TestCase
                           :id => '1',
                           :assignment_id => '1',
                           :submission_id => '1',
-                          :locale => 'en'})            
+                          :locale => 'en'})
           end
           should "route POST codeviewer properly" do
             assert_routing({:path => @path + '/1/codeviewer',
@@ -903,7 +902,7 @@ class RoutingTest < ActionController::TestCase
                           :id => '1',
                           :assignment_id => '1',
                           :submission_id => '1',
-                          :locale => 'en'})            
+                          :locale => 'en'})
           end
         #  should "route POST collapse_criteria properly" do
         #    assert_routing({:path => @path + '/1/collapse_criteria',
@@ -923,7 +922,7 @@ class RoutingTest < ActionController::TestCase
                           :id => '1',
                           :assignment_id => '1',
                           :submission_id => '1',
-                          :locale => 'en'})            
+                          :locale => 'en'})
           end
           should "route GET next_grouping properly" do
             assert_routing({:path => @path + '/1/next_grouping',
@@ -933,7 +932,7 @@ class RoutingTest < ActionController::TestCase
                           :id => '1',
                           :assignment_id => '1',
                           :submission_id => '1',
-                          :locale => 'en'})            
+                          :locale => 'en'})
           end
           should "route POST remove_extra_mark properly" do
             assert_routing({:path => @path + '/1/remove_extra_mark',
@@ -943,7 +942,7 @@ class RoutingTest < ActionController::TestCase
                           :id => '1',
                           :assignment_id => '1',
                           :submission_id => '1',
-                          :locale => 'en'})            
+                          :locale => 'en'})
           end
          # should "route POST expand_unmarked_criteria properly" do
          #   assert_routing({:path => @path + '/1/expand_unmarked_criteria',
@@ -963,7 +962,7 @@ class RoutingTest < ActionController::TestCase
                           :id => '1',
                           :assignment_id => '1',
                           :submission_id => '1',
-                          :locale => 'en'})            
+                          :locale => 'en'})
           end
           should "route POST update_overall_comment properly" do
             assert_routing({:path => @path + '/1/update_overall_comment',
@@ -973,7 +972,7 @@ class RoutingTest < ActionController::TestCase
                           :id => '1',
                           :assignment_id => '1',
                           :submission_id => '1',
-                          :locale => 'en'})            
+                          :locale => 'en'})
           end
           should "route POST update_overall_remark_comment properly" do
             assert_routing({:path => @path + '/1/update_overall_remark_comment',
@@ -983,7 +982,7 @@ class RoutingTest < ActionController::TestCase
                           :id => '1',
                           :assignment_id => '1',
                           :submission_id => '1',
-                          :locale => 'en'})            
+                          :locale => 'en'})
           end
           should "route POST update_marking_state properly" do
             assert_routing({:path => @path + '/1/update_marking_state',
@@ -993,7 +992,7 @@ class RoutingTest < ActionController::TestCase
                           :id => '1',
                           :assignment_id => '1',
                           :submission_id => '1',
-                          :locale => 'en'})            
+                          :locale => 'en'})
           end
           should "route GET update_remark_request properly" do
             assert_routing({:path => @path + '/1/update_remark_request',
@@ -1003,7 +1002,7 @@ class RoutingTest < ActionController::TestCase
                           :id => '1',
                           :assignment_id => '1',
                           :submission_id => '1',
-                          :locale => 'en'})            
+                          :locale => 'en'})
           end
           should "route GET update_positions properly" do
             assert_routing({:path => @path + '/1/update_positions',
@@ -1013,7 +1012,7 @@ class RoutingTest < ActionController::TestCase
                           :id => '1',
                           :assignment_id => '1',
                           :submission_id => '1',
-                          :locale => 'en'})            
+                          :locale => 'en'})
           end
         #  should "route GET update_mark properly" do
         #    assert_routing({:path => @path + '/1/update_mark',
@@ -1043,7 +1042,7 @@ class RoutingTest < ActionController::TestCase
                           :id => '1',
                           :assignment_id => '1',
                           :submission_id => '1',
-                          :locale => 'en'})            
+                          :locale => 'en'})
           end
         end # end assignment submission results member route tests
       end # end assignment submission results route tests
@@ -1060,7 +1059,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'add_grader_to_grouping',
                           :assignment_id => '1',
-                          :locale => 'en'})         
+                          :locale => 'en'})
         end
         should "route POST csv_upload_grader_groups_mapping properly" do
           assert_routing({:path => @path + '/csv_upload_grader_groups_mapping',
@@ -1068,7 +1067,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'csv_upload_grader_groups_mapping',
                           :assignment_id => '1',
-                          :locale => 'en'})         
+                          :locale => 'en'})
         end
         should "route POST csv_upload_grader_criteria_mapping properly" do
           assert_routing({:path => @path + '/csv_upload_grader_criteria_mapping',
@@ -1076,7 +1075,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'csv_upload_grader_criteria_mapping',
                           :assignment_id => '1',
-                          :locale => 'en'})         
+                          :locale => 'en'})
         end
         should "route GET download_grader_groupings_mapping properly" do
           assert_routing({:path => @path + '/download_grader_groupings_mapping',
@@ -1084,7 +1083,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'download_grader_groupings_mapping',
                           :assignment_id => '1',
-                          :locale => 'en'})         
+                          :locale => 'en'})
         end
         should "route GET download_grader_criteria_mapping properly" do
           assert_routing({:path => @path + '/download_grader_criteria_mapping',
@@ -1092,7 +1091,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'download_grader_criteria_mapping',
                           :assignment_id => '1',
-                          :locale => 'en'})         
+                          :locale => 'en'})
         end
         should "route GET download_dialog properly" do
           assert_routing({:path => @path + '/download_dialog',
@@ -1100,7 +1099,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'download_dialog',
                           :assignment_id => '1',
-                          :locale => 'en'})         
+                          :locale => 'en'})
         end
         should "route GET download_grouplist properly" do
           assert_routing({:path => @path + '/download_grouplist',
@@ -1108,7 +1107,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'download_grouplist',
                           :assignment_id => '1',
-                          :locale => 'en'})         
+                          :locale => 'en'})
         end
         should "route GET grader_criteria_dialog properly" do
           assert_routing({:path => @path + '/grader_criteria_dialog',
@@ -1116,7 +1115,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'grader_criteria_dialog',
                           :assignment_id => '1',
-                          :locale => 'en'})         
+                          :locale => 'en'})
         end
         should "route GET global_actions properly" do
           assert_routing({:path => @path + '/global_actions',
@@ -1124,7 +1123,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'global_actions',
                           :assignment_id => '1',
-                          :locale => 'en'})         
+                          :locale => 'en'})
         end
         should "route GET groups_coverage_dialog properly" do
           assert_routing({:path => @path + '/groups_coverage_dialog',
@@ -1132,7 +1131,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'groups_coverage_dialog',
                           :assignment_id => '1',
-                          :locale => 'en'})         
+                          :locale => 'en'})
         end
         should "route POST populate_graders properly" do
           assert_routing({:path => @path + '/populate_graders',
@@ -1140,7 +1139,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'populate_graders',
                           :assignment_id => '1',
-                          :locale => 'en'})         
+                          :locale => 'en'})
         end
         should "route POST populate properly" do
           assert_routing({:path => @path + '/populate',
@@ -1148,7 +1147,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'populate',
                           :assignment_id => '1',
-                          :locale => 'en'})         
+                          :locale => 'en'})
         end
         should "route POST populate_criteria properly" do
           assert_routing({:path => @path + '/populate_criteria',
@@ -1156,7 +1155,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'populate_criteria',
                           :assignment_id => '1',
-                          :locale => 'en'})         
+                          :locale => 'en'})
         end
         should "route POST set_assign_criteria properly" do
           assert_routing({:path => @path + '/set_assign_criteria',
@@ -1164,15 +1163,14 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'set_assign_criteria',
                           :assignment_id => '1',
-                          :locale => 'en'})         
-        end
+                          :locale => 'en'})
         should "route GET random_assign properly" do
           assert_routing({:path => @path + '/random_assign',
                           :method => :get},
                          {:controller => @controller,
                           :action => 'random_assign',
                           :assignment_id => '1',
-                          :locale => 'en'})         
+                          :locale => 'en'})
         end
         should "route GET upload_dialog properly" do
           assert_routing({:path => @path + '/upload_dialog',
@@ -1180,7 +1178,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'upload_dialog',
                           :assignment_id => '1',
-                          :locale => 'en'})         
+                          :locale => 'en'})
         end
         should "route POST global_actions properly" do
           assert_routing({:path => @path + '/global_actions',
@@ -1188,7 +1186,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'global_actions',
                           :assignment_id => '1',
-                          :locale => 'en'})         
+                          :locale => 'en'})
         end
       end # end assignment graders collection route tests
     end # end assignment graders route tests
@@ -1349,7 +1347,7 @@ class RoutingTest < ActionController::TestCase
                          {:controller => @controller,
                           :action => 'student_interface',
                           :locale => 'en'})
-        end        
+        end
      end # end grade_entry_forms collection route tests
     context "member" do
       should "route GET grades properly" do
