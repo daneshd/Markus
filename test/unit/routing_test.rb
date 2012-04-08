@@ -13,77 +13,63 @@ class RoutingTest < ActionController::TestCase
    end
 
   context "The API" do
-    context "test_results resource" do
-      setup do
-        @path = '/en/api/test_results'
-        @controller = 'api/test_results'
-        @testResult = TestResult.make
-      end
-      should "route GET index correctly" do
-        assert_routing({:path => @path,
-                        :method => :get},
-                       {:controller => @controller,
-                        :action => 'index',
-                        :format => 'text',
-                        :locale => 'en'})
-      end
-      should "route POST create correctly" do
-        assert_routing({:path => @path,
-                        :method => :post},
-                       {:controller => @controller,
-                        :action => 'create',
-                        :format => 'text',
-                        :locale => 'en'})
-      end
-      should "route GET show correctly" do
-        assert_routing({:path => @path + '/' + @testResult.id.to_s,
-                        :method => :get},
-                       {:controller => @controller,
-                        :action => 'show',
-                        :id => @testResult.id.to_s,
-                        :locale => 'en',
-                        :format => 'text'})
-     end
-      should "route PUT update correctly" do
-        assert_routing({:path => @path + '/' + @testResult.id.to_s,
-                        :method => :put},
-                       {:controller => @controller,
-                        :action => 'update',
-                        :id => @testResult.id.to_s,
-                        :format => 'text',
-                        :locale => 'en'})
-       end
-      should "route DELETE destroy correctly" do
-        assert_routing({:path => @path + '/' + @testResult.id.to_s,
-                        :method => :delete},
-                       {:controller => @controller,
-                        :action => 'destroy',
-                        :id => @testResult.id.to_s,
-                        :format => 'text',
-                        :locale => 'en'})
-      end # end test_results route tests
-      # TODO
-      should "not have a route for GET new" do
+    setup do
+      @path = "en/api"
+    end
+    context "test_results" do
+      should "not route GET new" do
         assert_raises(Test::Unit::AssertionFailedError) do
-          assert_recognizes({},
-                          @path + '/new')
+          assert_recognizes({:controller => 'test_results', 
+                              :action=>'new'}, 
+                              {:path => @path + "/test_results/new", 
+                               :method => :get})
         end
+      end
+      should "not route GET edit" do
+          assert_raises(Test::Unit::AssertionFailedError) do
+            assert_recognizes({:controller => 'test_results', 
+                              :action=>'edit'}, 
+                              {:path => @path + "/test_results/edit", 
+                               :method => :get})
+          end
+      end
+    end # end API test_results route tests
+    context "submission_downloads" do
+      should "not route GET new" do
+        assert_raises(Test::Unit::AssertionFailedError) do
+          assert_recognizes({:controller => 'submission_downloads', 
+                              :action=>'new'}, 
+                              {:path => @path + "/submission_downloads/new", 
+                               :method => :get})
+        end
+      end
+      should "not route GET edit" do
+          assert_raises(Test::Unit::AssertionFailedError) do
+            assert_recognizes({:controller => 'submission_downloads', 
+                              :action=>'edit'}, 
+                              {:path => @path + "/submission_downloads/edit", 
+                               :method => :get})
+          end
+      end
+    end # end API submission_downloads route tests
+    context "users" do
+      should "not route GET new" do
+        assert_raises(Test::Unit::AssertionFailedError) do
+          assert_recognizes({:controller => 'users', 
+                              :action=>'new'}, 
+                              {:path => @path + "/users/new", 
+                               :method => :get})
+        end
+      end
+      should "not route GET edit" do
+        assert_raises(Test::Unit::AssertionFailedError) do
+          assert_recognizes({:controller => 'users', 
+                              :action=>'edit'}, 
+                              {:path => @path + "/users/edit", 
+                               :method => :get})
       end
     end
-    context "submission_downloads resource" do
-      should "not have a route to GET new" do
-        assert_raises(ActionController::RoutingError) do
-        assert_routing({:path => @path + '/new',
-                        :method => :get},
-                       {:controller => @controller,
-                        :action => 'new',
-                        :format => 'text',
-                        :locale => 'en'})
-        end
-      end
-    end # end submission_downloads route tests
-    context "users resource" do
-    end # end user_resource route tests
+   end # end API usrs route tests
   end # end API route tests
 
   context "Admin resource" do
