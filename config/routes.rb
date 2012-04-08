@@ -250,7 +250,7 @@ Markus::Application.routes.draw do
   end
 
   resources :sections
-  
+
   resources :annotations do
       collection do
         post 'add_existing_annotation'

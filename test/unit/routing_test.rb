@@ -19,17 +19,17 @@ class RoutingTest < ActionController::TestCase
     context "test_results" do
       should "not route GET new" do
         assert_raises(Test::Unit::AssertionFailedError) do
-          assert_recognizes({:controller => 'test_results', 
-                              :action=>'new'}, 
-                              {:path => @path + "/test_results/new", 
+          assert_recognizes({:controller => 'test_results',
+                              :action=>'new'},
+                              {:path => @path + "/test_results/new",
                                :method => :get})
         end
       end
       should "not route GET edit" do
           assert_raises(Test::Unit::AssertionFailedError) do
-            assert_recognizes({:controller => 'test_results', 
-                              :action=>'edit'}, 
-                              {:path => @path + "/test_results/edit", 
+            assert_recognizes({:controller => 'test_results',
+                              :action=>'edit'},
+                              {:path => @path + "/test_results/edit",
                                :method => :get})
           end
       end
@@ -37,17 +37,17 @@ class RoutingTest < ActionController::TestCase
     context "submission_downloads" do
       should "not route GET new" do
         assert_raises(Test::Unit::AssertionFailedError) do
-          assert_recognizes({:controller => 'submission_downloads', 
+          assert_recognizes({:controller => 'submission_downloads',
                               :action=>'new'}, 
-                              {:path => @path + "/submission_downloads/new", 
+                              {:path => @path + "/submission_downloads/new",
                                :method => :get})
         end
       end
       should "not route GET edit" do
           assert_raises(Test::Unit::AssertionFailedError) do
-            assert_recognizes({:controller => 'submission_downloads', 
+            assert_recognizes({:controller => 'submission_downloads',
                               :action=>'edit'}, 
-                              {:path => @path + "/submission_downloads/edit", 
+                              {:path => @path + "/submission_downloads/edit",
                                :method => :get})
           end
       end
@@ -55,17 +55,17 @@ class RoutingTest < ActionController::TestCase
     context "users" do
       should "not route GET new" do
         assert_raises(Test::Unit::AssertionFailedError) do
-          assert_recognizes({:controller => 'users', 
-                              :action=>'new'}, 
-                              {:path => @path + "/users/new", 
+          assert_recognizes({:controller => 'users',
+                              :action=>'new'},
+                              {:path => @path + "/users/new",
                                :method => :get})
         end
       end
       should "not route GET edit" do
         assert_raises(Test::Unit::AssertionFailedError) do
-          assert_recognizes({:controller => 'users', 
-                              :action=>'edit'}, 
-                              {:path => @path + "/users/edit", 
+          assert_recognizes({:controller => 'users',
+                              :action=>'edit'},
+                              {:path => @path + "/users/edit",
                                :method => :get})
       end
     end
@@ -779,20 +779,56 @@ class RoutingTest < ActionController::TestCase
           @controller = "results"
         end
         context "collection" do
-          should "route POST update_mark properly" do
+          should "route GET update_mark properly" do
             assert_routing({:path => @path + '/update_mark',
-                            :method => :post},
+                            :method => :get},
                            {:controller => @controller,
                             :action => 'update_mark',
                             :assignment_id => '1',
                             :submission_id => '1',
                             :locale => 'en'})
           end
-          should "route POST expand_criteria properly" do
+          should "route GET expand_criteria properly" do
             assert_routing({:path => @path + '/expand_criteria',
-                            :method => :post},
+                            :method => :get},
                            {:controller => @controller,
                             :action => 'expand_criteria',
+                            :assignment_id => '1',
+                            :submission_id => '1',
+                            :locale => 'en'})
+          end
+          should "route GET collapse_criteria properly" do
+            assert_routing({:path => @path + '/collapse_criteria',
+                            :method => :get},
+                           {:controller => @controller,
+                            :action => 'collapse_criteria',
+                            :assignment_id => '1',
+                            :submission_id => '1',
+                            :locale => 'en'})
+          end
+          should "route GET expand_unmarked_criteria properly" do
+            assert_routing({:path => @path + '/expand_unmarked_criteria',
+                            :method => :get},
+                           {:controller => @controller,
+                            :action => 'expand_unmarked_criteria',
+                            :assignment_id => '1',
+                            :submission_id => '1',
+                            :locale => 'en'})
+          end
+          should "route GET edit properly" do
+            assert_routing({:path => @path + '/edit',
+                            :method => :get},
+                           {:controller => @controller,
+                            :action => 'edit',
+                            :assignment_id => '1',
+                            :submission_id => '1',
+                            :locale => 'en'})
+          end
+          should "route GET download properly" do
+            assert_routing({:path => @path + '/download',
+                            :method => :get},
+                           {:controller => @controller,
+                            :action => 'download',
                             :assignment_id => '1',
                             :submission_id => '1',
                             :locale => 'en'})
@@ -819,26 +855,26 @@ class RoutingTest < ActionController::TestCase
                           :submission_id => '1',
                           :locale => 'en'})            
           end
-          should "route GET download properly" do
-            assert_routing({:path => @path + '/1/download',
-                          :method => :get},
-                         {:controller => @controller,
-                          :action => 'download',
-                          :id => '1',
-                          :assignment_id => '1',
-                          :submission_id => '1',
-                          :locale => 'en'})            
-          end
-          should "route POST download properly" do
-            assert_routing({:path => @path + '/1/download',
-                          :method => :post},
-                         {:controller => @controller,
-                          :action => 'download',
-                          :id => '1',
-                          :assignment_id => '1',
-                          :submission_id => '1',
-                          :locale => 'en'})            
-          end
+         # should "route GET download properly" do
+         #   assert_routing({:path => @path + '/1/download',
+         #                 :method => :get},
+         #                {:controller => @controller,
+         #                 :action => 'download',
+         #                 :id => '1',
+         #                 :assignment_id => '1',
+         #                 :submission_id => '1',
+         #                 :locale => 'en'})            
+         # end
+         # should "route POST download properly" do
+         #   assert_routing({:path => @path + '/1/download',
+         #                 :method => :post},
+         #                {:controller => @controller,
+         #                 :action => 'download',
+         #                 :id => '1',
+         #                 :assignment_id => '1',
+         #                 :submission_id => '1',
+         #                 :locale => 'en'})            
+         # end
           should "route GET cancel_remark_request properly" do
             assert_routing({:path => @path + '/1/cancel_remark_request',
                           :method => :get},
@@ -869,16 +905,16 @@ class RoutingTest < ActionController::TestCase
                           :submission_id => '1',
                           :locale => 'en'})            
           end
-          should "route POST collapse_criteria properly" do
-            assert_routing({:path => @path + '/1/collapse_criteria',
-                          :method => :post},
-                         {:controller => @controller,
-                          :action => 'collapse_criteria',
-                          :id => '1',
-                          :assignment_id => '1',
-                          :submission_id => '1',
-                          :locale => 'en'})            
-          end
+        #  should "route POST collapse_criteria properly" do
+        #    assert_routing({:path => @path + '/1/collapse_criteria',
+        #                  :method => :post},
+        #                 {:controller => @controller,
+        #                  :action => 'collapse_criteria',
+        #                  :id => '1',
+        #                  :assignment_id => '1',
+        #                  :submission_id => '1',
+        #                  :locale => 'en'})            
+        #  end
           should "route POST add_extra_mark properly" do
             assert_routing({:path => @path + '/1/add_extra_mark',
                           :method => :post},
@@ -909,16 +945,16 @@ class RoutingTest < ActionController::TestCase
                           :submission_id => '1',
                           :locale => 'en'})            
           end
-          should "route POST expand_unmarked_criteria properly" do
-            assert_routing({:path => @path + '/1/expand_unmarked_criteria',
-                          :method => :post},
-                         {:controller => @controller,
-                          :action => 'expand_unmarked_criteria',
-                          :id => '1',
-                          :assignment_id => '1',
-                          :submission_id => '1',
-                          :locale => 'en'})            
-          end
+         # should "route POST expand_unmarked_criteria properly" do
+         #   assert_routing({:path => @path + '/1/expand_unmarked_criteria',
+         #                 :method => :post},
+         #                {:controller => @controller,
+         #                 :action => 'expand_unmarked_criteria',
+         #                 :id => '1',
+         #                 :assignment_id => '1',
+         #                 :submission_id => '1',
+         #                 :locale => 'en'})            
+         # end
           should "route GET set_released_to_students properly" do
             assert_routing({:path => @path + '/1/set_released_to_students',
                           :method => :get},
